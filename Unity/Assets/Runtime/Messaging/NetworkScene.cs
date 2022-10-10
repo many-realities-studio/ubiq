@@ -154,6 +154,7 @@ namespace Ubiq.Messaging
         /// </summary>
         public static NetworkContext Register(MonoBehaviour component, NetworkId id)
         {
+            Debug.Log("Creating networked object " + id);
             NetworkContext context;
             context.Scene = Find(component);
             context.Id = id;
