@@ -32,6 +32,7 @@ class WebSocketConnectionWrapper{
         this.socket = ws;
 
         this.socket.on("message", function(data){
+          console.log(data)
             this.onMessage.map(callback => callback(Message.Wrap(data)));
         }.bind(this));
 
