@@ -520,6 +520,7 @@ namespace Ubiq.Rooms
                         var args = JsonUtility.FromJson<RoomPropertiesAppendedArgs>(container.args);
                         if (room.properties.Append(args.keys,args.values))
                         {
+                        Debug.Log("Received RoomPropertiesAppended message " + args.keys[0] + " " + args.values[0]);
                             OnRoomUpdated.Invoke(room);
                         }
                     }

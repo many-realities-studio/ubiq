@@ -94,6 +94,7 @@ namespace Ubiq.Spawning
 
         private void UpdateRoom(IRoom room)
         {
+            Debug.Log("Updating Room " + room.UUID);
             // Spawn all unspawned objects for this room
             foreach (var item in room)
             {
@@ -426,7 +427,7 @@ namespace Ubiq.Spawning
         private void Spawner_OnSpawned(GameObject gameObject, IRoom room,
             IPeer peer, NetworkSpawnOrigin origin)
         {
-            gameObject.transform.parent = transform;
+            gameObject.transform.SetParent(transform,false);
             OnSpawned.Invoke(gameObject, room, peer, origin);
         }
 
