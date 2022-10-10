@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 3055651912994397351}
   - component: {fileID: 3299451915509029334}
   - component: {fileID: 2724522540397752810}
+  - component: {fileID: 4095521644469866006}
+  - component: {fileID: 7755087390644890366}
+  - component: {fileID: 3069364587329810362}
   m_Layer: 0
   m_Name: GraspableCube
   m_TagString: Untagged
@@ -95,3 +98,48 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &4095521644469866006
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701653293919749812}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &7755087390644890366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701653293919749812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e348b099fafd784daf11853eb40acd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3069364587329810362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701653293919749812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 377aa20bb10c6b04a941ee7a7451fd46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Float: 0
+  String: 
+  Class:
+    InternalInt: 0
+  Color: {r: 0, g: 0, b: 0, a: 0}

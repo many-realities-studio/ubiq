@@ -22,8 +22,6 @@ namespace Ubiq.Samples
     [RequireComponent(typeof(Rigidbody))]
     public class GraspableCube : MonoBehaviour, IGraspable, INetworkSpawnable
     {
-        public GameObject FireworkPrefab;
-        public NetworkSpawnManager nsm;
         private Hand follow;
         private Rigidbody body;
 
@@ -32,11 +30,6 @@ namespace Ubiq.Samples
         private void Awake()
         {
             body = GetComponent<Rigidbody>();
-        }
-
-        public void Start()
-        {
-            nsm.SpawnWithPeerScope(gameObject);
         }
 
         public void Grasp(Hand controller)
