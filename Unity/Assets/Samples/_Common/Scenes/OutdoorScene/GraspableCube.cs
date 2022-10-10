@@ -4,6 +4,7 @@ using System.Linq;
 using Ubiq.XR;
 using UnityEngine;
 using Ubiq.Spawning;
+using Ubiq.Messaging;
 
 namespace Ubiq.Samples
 {
@@ -19,16 +20,23 @@ namespace Ubiq.Samples
     /// enabled, and each player has their own copy.
     /// </summary>
     [RequireComponent(typeof(Rigidbody))]
-    public class GraspableCube : MonoBehaviour, IGraspable
+    public class GraspableCube : MonoBehaviour, IGraspable, INetworkSpawnable
     {
         public GameObject FireworkPrefab;
-
+        public NetworkSpawnManager nsm;
         private Hand follow;
         private Rigidbody body;
+
+        public NetworkId NetworkId { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
         private void Awake()
         {
             body = GetComponent<Rigidbody>();
+        }
+
+        public void Start()
+        {
+            nsm.SpawnWithPeerScope(gameObject);
         }
 
         public void Grasp(Hand controller)
