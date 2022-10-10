@@ -182,6 +182,7 @@ namespace Ubiq.Messaging
         public static NetworkId GetNetworkId(MonoBehaviour component)
         {
             var property = (component.GetType().GetProperty("NetworkId", typeof(NetworkId)));
+            Debug.Log(property);
             if (property != null)
             {
                 return (NetworkId)property.GetValue(component);
