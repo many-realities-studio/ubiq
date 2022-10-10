@@ -278,6 +278,7 @@ namespace Ubiq.Messaging
         public static NetworkId Create(MonoBehaviour component)
         {
             var address = SceneGraphHelper.GetUniqueAddress(component);
+            Debug.Log(address);
             using (var sha1 = new SHA1Managed())
             {
                 return new NetworkId(sha1.ComputeHash(Encoding.UTF8.GetBytes(address)), 0);
