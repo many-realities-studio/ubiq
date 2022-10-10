@@ -32,7 +32,6 @@ class WebSocketConnectionWrapper{
         this.socket = ws;
 
         this.socket.on("message", function(data){
-          console.log(data)
             this.onMessage.map(callback => callback(Message.Wrap(data)));
         }.bind(this));
 
@@ -129,7 +128,6 @@ class TcpConnectionWrapper{
 
                     // the message is complete
                     if(this.data.read == this.data.length){
-                        console.log(this.data)
                         this.onMessage.map(callback => callback(Message.Wrap(this.data)));
                         this.data = null;
                         this.header.read = 0;
