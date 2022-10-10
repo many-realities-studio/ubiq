@@ -28,6 +28,10 @@ namespace Ubiq.Samples
         // serialiser: we can synchronise fields of simple types, including
         // our own types. We can also synchronise lists, but not dictionaries.
 
+        private NetworkContext context;
+
+        private Vector3 lastPosition;
+
         [Serializable]
         public class NestedClass
         {
@@ -53,10 +57,22 @@ namespace Ubiq.Samples
             Debug.Log(this.networkContext.Id);
         }
 
-
+        // Update is called once per frame
         void Update()
         {
-            material.color = Color;
+            if (transform.localPosition != lastPosition)
+            {
+                material.color = Color;
+                lastPosition = transform.localPosition;
+                context.SendJson<Vector3>(lastPosition);
+            }
+        }
+
+        public void ProcessMessage(ReferenceCountedSceneGraphMessage message)
+        {
+            var newPosition = message.FromJson<Vector3>();
+            lastPosition = newPosition;
+            transform.localPosition = lastPosition;
         }
     }
 }
