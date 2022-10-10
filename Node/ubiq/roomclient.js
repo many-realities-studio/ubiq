@@ -139,6 +139,7 @@ class RoomClient extends EventEmitter{
     processMessage(message){
         message = message.toObject();
         var args = JSON.parse(message.args);
+        console.log(message);
         switch(message.type){
             case "SetRoom":
                 this.setRoomInfo(args.room);
