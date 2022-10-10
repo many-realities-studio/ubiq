@@ -7,7 +7,7 @@ using Ubiq.Spawning;
 
 namespace Ubiq.Samples
 {
-    public interface IFirework
+    public interface IGraspableCube
     {
         void Attach(Hand hand);
     }
