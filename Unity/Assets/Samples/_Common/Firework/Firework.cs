@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Ubiq.Samples
 {
-    public class Firework : MonoBehaviour, IUseable, IFirework, INetworkSpawnable
+    public class Firework : MonoBehaviour, IUseable, IFirework, INetworkSpawnable, IGraspable
     {
         private Hand attached;
         private Rigidbody body;
@@ -37,6 +37,11 @@ namespace Ubiq.Samples
             attached = hand;
             owner = true;
         }
+        public void Grasp(Hand controller)
+        {
+            attached = controller;
+            owner = true;
+        }
 
         public void UnUse(Hand controller)
         {
@@ -62,7 +67,7 @@ namespace Ubiq.Samples
 
         private void Update()
         {
-            if(attached)
+            if(attached) 
             {
                 transform.position = attached.transform.position;
                 transform.rotation = attached.transform.rotation;
@@ -97,6 +102,11 @@ namespace Ubiq.Samples
             transform.localPosition = msg.transform.position; // The Message constructor will take the *local* properties of the passed transform.
             transform.localRotation = msg.transform.rotation;
             fired = msg.fired;
+        }
+
+        public void Release(Hand controller)
+        {
+           attached = null;
         }
     }
 }
