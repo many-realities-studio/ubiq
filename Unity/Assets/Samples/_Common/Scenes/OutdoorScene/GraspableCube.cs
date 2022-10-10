@@ -19,7 +19,7 @@ namespace Ubiq.Samples
     /// enabled, and each player has their own copy.
     /// </summary>
     [RequireComponent(typeof(Rigidbody))]
-    public class FireworksBox : MonoBehaviour, IUseable, IGraspable
+    public class GraspableCube : MonoBehaviour, IGraspable
     {
         public GameObject FireworkPrefab;
 
@@ -45,16 +45,6 @@ namespace Ubiq.Samples
         {
         }
 
-        public void Use(Hand controller)
-        {
-            var go = NetworkSpawnManager.Find(this).SpawnWithPeerScope(FireworkPrefab);
-            var firework = go.GetComponent<Firework>();
-            firework.owner = true;
-            if (firework != null)
-            {
-                firework.Attach(controller);
-            }
-        }
 
         private void Update()
         {
