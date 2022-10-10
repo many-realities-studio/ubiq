@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Ubiq.Messaging;
 using Ubiq.NetworkedBehaviour;
 using UnityEngine;
 
@@ -37,6 +38,7 @@ namespace Ubiq.Samples
         public string String;
         public NestedClass Class;
         public Color Color;
+        private NetworkContext networkContext;
 
         private Material material;
 
@@ -49,6 +51,7 @@ namespace Ubiq.Samples
         {
             NetworkedBehaviours.Register(this);
         }
+
 
         void Update()
         {
