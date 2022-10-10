@@ -145,6 +145,7 @@ namespace Ubiq.Messaging
         /// </summary>
         public static NetworkContext Register(MonoBehaviour component)
         {
+
             return Register(component, GetNetworkId(component));
         }
 
@@ -187,6 +188,8 @@ namespace Ubiq.Messaging
             }
             else
             {
+
+                Debug.Log("NetworkId.Create");
                 return NetworkId.Create(component);
             }
         }
