@@ -53,7 +53,7 @@ namespace Ubiq.Samples
 
         void Start()
         {
-            NetworkedBehaviours.Register(this);
+            context = NetworkScene.Register(this);
             Debug.Log(this.networkContext.Id);
         }
 
