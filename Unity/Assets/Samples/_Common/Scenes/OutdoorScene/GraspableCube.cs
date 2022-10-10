@@ -25,8 +25,13 @@ namespace Ubiq.Samples
         private Hand follow;
         private Rigidbody body;
 
-        public NetworkId NetworkId { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+        public NetworkId NetworkId { get; set; }
 
+        private NetworkContext context;
+        private void Start()
+        {
+            context = NetworkScene.Register(this);
+        }
         private void Awake()
         {
             body = GetComponent<Rigidbody>();
@@ -46,6 +51,15 @@ namespace Ubiq.Samples
         {
         }
 
+        public struct Message
+        {
+            public TransformMessage transform;
+
+            public Message(Transform transform)
+            {
+                this.transform = new TransformMessage(transform);
+            }
+        }
 
         private void Update()
         {
@@ -53,6 +67,7 @@ namespace Ubiq.Samples
             {
                 transform.position = follow.transform.position;
                 transform.rotation = follow.transform.rotation;
+                context.SendJson(new Message(transform));
                 body.isKinematic = true;
             }
             else
