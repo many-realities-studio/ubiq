@@ -404,7 +404,7 @@ class RoomPeer{
                     return;
                 }
             }
-
+            console.log(message)
             switch(message.type){
                 case "Join":
                     if (Schema.validate(message.args, "/ubiq.rooms.joinargs", this.onValidationFailure)) {
