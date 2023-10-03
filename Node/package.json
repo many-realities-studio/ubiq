@@ -5,6 +5,10 @@
   "main": "app.js",
   "author": "UCL VECG",
   "license": "Apache-2.0",
+  "scripts": {
+    "build": "docker build -t lucidbard/realityflow-ubiq-server . && docker -o realityflow.tar lucidbard/realityflow-ubiq-server",
+    "deploy": "scp realityflow.tar azure-admin:~/"
+  },
   "dependencies": {
     "bufferutil": "^4.0.7",
     "commander": "^7.2.0",
