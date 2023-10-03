@@ -9,7 +9,7 @@
 // build NodeJs based (Client) Peers.
 
 const { 
-    WrappedSecureWebSocketServer,
+    WrappedWebSocketServer,
     WrappedTcpServer,
     WebSocketConnectionWrapper,
     TcpConnectionWrapper,
@@ -36,7 +36,7 @@ const {
 
 module.exports = {
     WebSocketConnectionWrapper,
-    WrappedSecureWebSocketServer,
+    WrappedWebSocketServer,
     TcpConnectionWrapper,
     WrappedTcpServer,
     Message,
