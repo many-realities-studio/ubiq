@@ -15,7 +15,7 @@ MonoBehaviour:
   listenOnIp: 
   listenOnPort: 
   sendToIp: students.gaim.ucf.edu/ws
-  sendToPort: 8009
+  sendToPort: 443
   type: 0
   platforms:
   - platform: 17
