@@ -124,3 +124,5 @@ config/local.json
 # Server local certificate for running secure WebSocket Servers
 cert.pem
 key.pem
+
+*.tar
