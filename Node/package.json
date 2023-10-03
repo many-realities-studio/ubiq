@@ -6,7 +6,7 @@
   "author": "UCL VECG",
   "license": "Apache-2.0",
   "scripts": {
-    "build": "docker build -t lucidbard/realityflow-ubiq-server . && docker -o realityflow.tar lucidbard/realityflow-ubiq-server",
+    "build": "docker build -t lucidbard/realityflow-ubiq-server . && docker save -o realityflow.tar lucidbard/realityflow-ubiq-server",
     "deploy": "scp realityflow.tar azure-admin:~/ && ssh azure-admin -C \"docker load -i realityflow.tar\" && ssh azure-admin -C \"docker run --rm -d -p 8009:8009/tcp -p 8010:8010/tcp lucidbard/realityflow-ubiq-server:latest\""
   },
   "dependencies": {
