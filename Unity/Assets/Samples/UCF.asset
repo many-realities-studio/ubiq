@@ -16,7 +16,7 @@ MonoBehaviour:
   listenOnPort: 
   sendToIp: students.gaim.ucf.edu/ws
   sendToPort: 443
-  type: 0
+  type: 3
   platforms:
   - platform: 17
     connection: {fileID: -4538272763558664669}
