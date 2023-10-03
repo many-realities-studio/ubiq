@@ -1,7 +1,7 @@
 const { Message } = require('./messaging');
 const WebSockets = require('ws');
 const Tcp = require('net');
-const { createServer } = require('https');
+const { createServer } = require('http');
 const path = require('path');
 const fs = require('fs');
 const { Buffer } = require('buffer');
@@ -16,7 +16,7 @@ const { Buffer } = require('buffer');
 // connection.onClose.push(this.myOnCloseCallback.bind(this));
 
 
-class WrappedSecureWebSocketServer{
+class WrappedWebSocketServer{
 
     // Opens a new Secure WebSocket Server through an HTTPS instance.
     // The certificate and key should be provided as paths in the config.
@@ -28,24 +28,24 @@ class WrappedSecureWebSocketServer{
 
         this.onConnection = [];
         
-        let certPath = path.resolve(config.cert);
-        let keyPath = path.resolve(config.key);
+        // let certPath = path.resolve(config.cert);
+        // let keyPath = path.resolve(config.key);
 
-        if(!fs.existsSync(certPath)){
-            console.error(`Certificate at ${certPath} could not be found. WebSocket server will not be started.`);
-            return;
-        }
-        if(!fs.existsSync(keyPath)){
-            console.error(`Certificate at ${certPath} could not be found. WebSocket server will not be started.`);
-            return;
-        }
+        // if(!fs.existsSync(certPath)){
+        //     console.error(`Certificate at ${certPath} could not be found. WebSocket server will not be started.`);
+        //     return;
+        // }
+        // if(!fs.existsSync(keyPath)){
+        //     console.error(`Certificate at ${certPath} could not be found. WebSocket server will not be started.`);
+        //     return;
+        // }
 
         // Use an https server to present the websocket 
         // (see: https://github.com/websockets/ws#usage-examples)
             
         const server = createServer({
-            cert: fs.readFileSync(certPath),
-            key: fs.readFileSync(keyPath)
+            // cert: fs.readFileSync(certPath),
+            // key: fs.readFileSync(keyPath)
         },
         (req, res) => {
             res.writeHead(200);
@@ -225,7 +225,7 @@ function UbiqTcpConnection(uri,port){
 
 module.exports = {
     WebSocketConnectionWrapper,
-    WrappedSecureWebSocketServer,
+    WrappedWebSocketServer,
     TcpConnectionWrapper,
     WrappedTcpServer,
     UbiqTcpConnection

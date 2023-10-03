@@ -5,11 +5,9 @@
         {
             "port": 8009
         },
-        "wss":
+        "ws":
         {
-            "port": 8010,
-            "cert": "./cert.pem",
-            "key": "./key.pem"
+            "port": 8010
         }
     },
     "iceservers":

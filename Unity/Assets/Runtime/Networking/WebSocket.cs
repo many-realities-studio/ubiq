@@ -62,7 +62,8 @@ namespace Ubiq.Networking
 
         public JsWebSocketConnection(ConnectionDefinition def)
         {
-            uri = string.Format("wss://{0}:{1}", def.sendToIp, def.sendToPort);
+            // uri = string.Format("wss://students.gaim.ucf.edu/ws";//, def.sendToIp, def.sendToPort);
+            uri = "wss://students.gaim.ucf.edu/ws";//, def.sendToIp, def.sendToPort);
 
             if (!JsWebSocketPlugin_TryConnect(uri))
             {
@@ -193,7 +194,8 @@ namespace Ubiq.Networking
             websocket = new ClientWebSocket();
             websocket.Options.SetBuffer(10000, 256);
             messagesToSend = new BlockingCollection<ReferenceCountedMessage>();
-            uri = string.Format("ws://{0}:{1}", def.sendToIp, def.sendToPort);
+      // uri = string.Format("wss://{0}:{1}", def.sendToIp, def.sendToPort);
+      uri = "wss://students.gaim.ucf.edu/ws";//, def.sendToIp, def.sendToPort);
             Task.Run(WebsocketConnect);
         }
 

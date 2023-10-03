@@ -1,4 +1,4 @@
-const { WrappedSecureWebSocketServer, WrappedTcpServer } = require("ubiq")
+const { WrappedWebSocketServer, WrappedTcpServer } = require("ubiq")
 const { RoomServer, IceServerProvider } = require("modules");
 const nconf = require('nconf');
 
@@ -16,7 +16,7 @@ nconf.file('default', 'config/default.json');
 roomServer = new RoomServer();
 roomServer.addStatusStream(nconf.get('roomserver:statusLogFile'));
 roomServer.addServer(new WrappedTcpServer(nconf.get('roomserver:tcp')));
-roomServer.addServer(new WrappedSecureWebSocketServer(nconf.get('roomserver:wss')));
+roomServer.addServer(new WrappedWebSocketServer(nconf.get('roomserver:ws')));
 
 iceServerProvider = new IceServerProvider(roomServer);
 var iceServers = nconf.get('iceservers');
